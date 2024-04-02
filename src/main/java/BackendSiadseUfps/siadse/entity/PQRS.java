@@ -18,13 +18,15 @@ public class PQRS {
     private String titulo;
     @NotNull(message = "descripcion cannot be null")
     private String descripcion;
-    private Date fecha_radicado;
+    private Date fechaRadicado;
     @ManyToOne
     @JoinColumn(name = "id_estados", nullable = false)
-    private EstadosPQRS estado_radicado;
+    private EstadosPQRS estadoRadicado;
     @NotNull(message = "correo cannot be null")
     private String correo;
-    private String tipo_pqrs;
+    @ManyToOne
+    @JoinColumn(name = "id_tipos_pqrs", nullable = false)
+    private TiposPQRS tipoPqrs;
     @NotNull(message = "anonimo cannot be null")
     private Boolean anonimo;
     private String nombre;
@@ -33,6 +35,6 @@ public class PQRS {
     @ManyToOne
     @JoinColumn(name = "id_semillero", nullable = false)
     private Semillero semillero;
-    @NotNull(message = "codigo_radicado cannot be null")
-    private String codigo_radicado;
+    @NotNull(message = "codigoRadicado cannot be null")
+    private String codigoRadicado;
 }
